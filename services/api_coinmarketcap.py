@@ -27,5 +27,4 @@ def get_info(your_coin):
         return e
 
 
-coin = 'toncoin'
-print(get_info(coin))
+# print(get_info('dogs'))
