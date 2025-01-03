@@ -1,4 +1,4 @@
-FROM python:3.12.0
+FROM tiangolo/uvicorn-gunicorn:python3.11-slim
 
 # устанавливаем переменные окружения
 ENV HOME=/home/vbif \
@@ -17,7 +17,7 @@ RUN mkdir -p $APP_HOME \
 # устанавливаем рабочую директорию
 WORKDIR $HOME
 
-COPY poetry.lock pyproject.toml ./
+COPY . .
 
 # обновление pip
 # установка зависимостей из списка requirements.txt
@@ -27,8 +27,6 @@ RUN pip3 install poetry
 RUN poetry config virtualenvs.create false
 RUN poetry install
 
-# копирование проекта FastAPI в рабочую директорию
-COPY . $APP_HOME
 
 # изменение рабочего пользователя на fast
 USER vbif

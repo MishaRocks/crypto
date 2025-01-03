@@ -6,7 +6,7 @@ authors = ["<Misha Chernov> <<tehobox@yandex.ru>>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
 okx = "^2.1.1"
 pytonapi = "^0.2.9"
 python-okx = "^0.2.9"
