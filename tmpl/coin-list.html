@@ -22,13 +22,16 @@
                             Цена
                         </th>
                         <th scope="col" class="p-2">
+                            Макс / 24ч
+                        </th>
+                        <th scope="col" class="p-2">
+                            Мин / 24ч
+                        </th>
+                        <th scope="col" class="p-2">
                             Категория
                         </th>
                         <th scope="col" class="p-2">
                             Ресурс
-                        </th>
-                        <th scope="col" class="p-2">
-                            Исходный код
                         </th>
                     </tr>
                 </thead>
@@ -46,13 +49,16 @@
                         $ {{ coin.index }}
                     </td>
                     <td class="align-middle p-2">
+                        $ {{ coin.index_max24 }}
+                    </td>
+                    <td class="align-middle p-2">
+                        $ {{ coin.index_min24 }}
+                    </td>
+                    <td class="align-middle p-2">
                         {{ coin.category }}
                     </td>
                     <td class="align-middle p-2">
                         <a href="{{ coin.website }}">Сайт</a>
-                    </td>
-                    <td class="align-middle p-2">
-                        <a href="{{ coin.source_code }}">{% if coin.source_code %} Github {% endif %}</a>
                     </td>
                 </tr>
                 {% endfor %}

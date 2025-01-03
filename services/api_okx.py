@@ -1,9 +1,5 @@
 import okx.MarketData as MarketData
 
-TON_USDT = "TON-USDT"
-TON_USD = "TON-USD"
-NOT_USDT = "NOT-USDT"
-NOT_USD = "NOT-USD"
 
 flag = "0"  # Production trading:0 , demo trading:1
 marketDataAPI = MarketData.MarketAPI(flag=flag)

@@ -1,0 +1,11 @@
+services:
+  web:
+    # Берем Dockerfile из каталога
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Запускаем тестовый сервер
+    command: uvicorn main:app --host 0.0.0.0
+    # Открываем порт 8000 внутри и снаружи
+    ports:
+      - 8000:8000
