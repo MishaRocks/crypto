@@ -1,16 +1,17 @@
-# This is a sample Python script.
+from fastapi import FastAPI, HTTPException, Request
+from services.coins import coins
+from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse
 
-# Press <no shortcut> to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+app = FastAPI(
+    docs_url=None,
+    redoc_url=None,
+)
+templates = Jinja2Templates(directory="tmpl")
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+@app.get("/")
+async def show_info(request: Request) -> HTMLResponse:
+    r = coins()
+    return templates.TemplateResponse(request, "coin-list.html",
+                                      {"coins": r})

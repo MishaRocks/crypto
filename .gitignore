@@ -1,2 +1,5 @@
 .env
 /.idea
+/models
+/routers
+/schemas

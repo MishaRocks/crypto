@@ -1,0 +1,79 @@
+{% extends "main.html" %}
+
+{% block crud_container %}
+
+<div class="container text-center">
+
+    <h2 class="p-4 m-4" align="center">Токены в блокчейне TON</h2>
+
+  <div class="row">
+      <div class="col-8">
+
+            <table class="table table-dark table-hover border-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">
+
+                        </th>
+                        <th scope="col" class="p-2">
+                            Монета
+                        </th>
+                        <th scope="col" class="p-2">
+                            Цена
+                        </th>
+                        <th scope="col" class="p-2">
+                            Макс / 24ч
+                        </th>
+                        <th scope="col" class="p-2">
+                            Мин / 24ч
+                        </th>
+                        <th scope="col" class="p-2">
+                            Категория
+                        </th>
+                        <th scope="col" class="p-2">
+                            Ресурс
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider border-primary">
+                {% for coin in coins %}
+                <tr>
+                    <td class="p-2">
+                        <img src="{{ coin.logo }}" class="rounded" width="50" height="50" alt="...">
+                    </td>
+                    <td class="align-middle p-2">
+                        <strong>{{ coin.symbol }}</strong>
+                        <br><small>{{ coin.name }}</small>
+                    </td>
+                    <td class="align-middle p-2">
+                        $ {{ coin.index }}
+                    </td>
+                    <td class="align-middle p-2">
+                        $ {{ coin.index_max24 }}
+                    </td>
+                    <td class="align-middle p-2">
+                        $ {{ coin.index_min24 }}
+                    </td>
+                    <td class="align-middle p-2">
+                        {{ coin.category }}
+                    </td>
+                    <td class="align-middle p-2">
+                        <a href="{{ coin.website }}">Сайт</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+    </div>
+      <div class="col-4 mt-2 p-4">
+          <p class="lead fw-medium text-start">
+              Вся информация и все данные получены из открытых сторонних источников.
+              Мы не несем ответственности за точность и достоверность приведённой на данном ресурсе информации.
+              Предоставленные данные предназначены для личного использования.
+          </p>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

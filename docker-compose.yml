@@ -1,0 +1,19 @@
+name: vbif-prod
+services:
+  web:
+    # Берем Dockerfile из каталога
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Запускаем тестовый сервер
+    command: gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
+    # Открываем порт 8000 внутри и снаружи
+#    ports:
+#      - 8000:8000
+
+  nginx:
+    build: nginx
+    ports:
+      - 80:80
+    depends_on:
+      - web
